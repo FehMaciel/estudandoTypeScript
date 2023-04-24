@@ -1,0 +1,28 @@
+class ContaBancaria{
+  saldo:number;
+  conta:number;
+  constructor(saldo:number, conta:number){
+    this.saldo = saldo;
+    this.conta = conta;
+  }
+  depositar(valor:number):string{
+    let antes:string = `Para a conta ${this.conta}, foi depositado ${valor}. O valor de R$${this.saldo} `;
+    this.saldo = this.saldo + valor;
+    let depois:string = antes + `foi para R$${this.saldo}`
+    return depois;
+  }
+  sacar(valor:number):string{
+    let antes:string = `Para a conta ${this.conta}, foi Sacado ${valor}. O valor de R$${this.saldo}`;
+    this.saldo = this.saldo - valor;
+    let depois:string = antes + ` foi para R$${this.saldo}`
+    return depois;
+  }
+}
+
+let conta = new ContaBancaria(12535, 18500);
+
+console.log(conta.depositar(5000))
+console.log(conta.sacar(8000))
+console.log(conta.depositar(650))
+console.log(conta.sacar(1500))
+
